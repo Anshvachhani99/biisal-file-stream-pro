@@ -26,8 +26,6 @@ BIN_CHANNEL = -1001832234721
 @StreamBot.on_message((filters.private) & (filters.document | filters.video | filters.audio | filters.photo) , group=4)
 async def private_receive_handler(c: Client, m: Message):
 
-    if m.from_user.id not in Var.ADMINS and not Var.USERS_CAN_USE:
-        return
 
     if not await db.is_user_exist(m.from_user.id):
         await db.add_user(m.from_user.id)
