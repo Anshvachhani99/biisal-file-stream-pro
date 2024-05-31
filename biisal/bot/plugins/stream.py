@@ -15,6 +15,10 @@ from shortzy import Shortzy
 
 from urllib.parse import quote as quote_plus
 
+MY_PASS = os.environ.get("MY_PASS", None)
+pass_dict = {}
+pass_db = Database(Var.DATABASE_URL, "ag_passwords")
+
 from biisal.utils.file_properties import get_name, get_hash, get_media_file_size
 db = Database(Var.DATABASE_URL, Var.name)
 BIN_CHANNEL = -1001832234721
